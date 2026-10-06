@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
-  <title>GRUPO ALIANÇA CONSIG — Soluções em Crédito Consignado</title>
+  <title>GRUPO ALIANÇA CONSIG — Crédito Consignado em Palhoça/SC</title>
   <meta name="description"
-    content="GRUPO ALIANÇA CONSIG (CNPJ 50.090.630/0001-72) — Especialistas em crédito consignado para servidores públicos, aposentados e pensionistas. Palhoça/SC." />
+    content="GRUPO ALIANÇA CONSIG (CNPJ 50.090.630/0001-72) — Especialistas em crédito consignado para servidores públicos, aposentados e pensionistas. Palhoça/SC. (48) 9210-7347." />
   <link rel="stylesheet" href="css/style.css" />
 
   <script type="application/ld+json">
@@ -37,247 +37,630 @@
   </script>
 
   <style>
+    /* ── HOME STYLES ────────────────────────────────────────── */
+
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0f2340 100%);
-      min-height: calc(100vh - 64px);
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(37,74,135,.6) 0%, transparent 70%),
+        linear-gradient(150deg, #081529 0%, #0D2244 40%, #1B3A6B 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 48px 24px;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-content { max-width: 640px; }
+    /* Grid background sutil */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(200,168,75,.15);
-      border: 1px solid rgba(200,168,75,.4);
-      color: #c8a84b;
-      font-size: .75rem;
+    /* Blur orbs decorativos */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.06);
+      filter: blur(80px);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero-orb {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(27,58,107,.4);
+      filter: blur(60px);
+      bottom: -80px; left: -80px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,.12);
+      border: 1px solid rgba(201,168,76,.25);
+      color: #C9A84C;
+      font-size: .72rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 6px 16px;
+      padding: 6px 16px 6px 12px;
       border-radius: 100px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px;
+      background: #C9A84C;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(.7); }
     }
 
     .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
       color: #ffffff;
+      letter-spacing: -1.5px;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #C9A84C 0%, #F0D080 50%, #C9A84C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.6);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #C9A84C 0%, #A8872C 100%);
+      color: #0D2244;
+      font-weight: 800;
+      font-size: .92rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      letter-spacing: .2px;
+      box-shadow: 0 8px 24px rgba(201,168,76,.35);
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(201,168,76,.45);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.06);
+      border: 1.5px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.85);
+      font-weight: 600;
+      font-size: .92rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.3);
+      transform: translateY(-3px);
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 24px 32px;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 8px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-number span { color: #C9A84C; }
+
+    .stat-label {
+      font-size: .72rem;
+      color: rgba(255,255,255,.4);
+      font-weight: 500;
+      letter-spacing: .5px;
+    }
+
+    /* DIVIDER WAVE */
+    .wave-divider {
+      background: #0D2244;
+      line-height: 0;
+    }
+
+    /* SECTION: COMO FUNCIONA */
+    .section {
+      padding: 96px 24px;
+    }
+
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .section-header { text-align: center; margin-bottom: 64px; }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #C9A84C;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #1B3A6B;
+      letter-spacing: -1px;
       line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: #64748B;
+      font-size: .98rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* CARDS: SERVIÇOS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1B3A6B, #C9A84C);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(27,58,107,.12);
+      border-color: transparent;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .si-blue  { background: linear-gradient(135deg, #EEF4FF, #DBEAFE); }
+    .si-gold  { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); }
+    .si-green { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+    .si-purple{ background: linear-gradient(135deg, #F5F3FF, #EDE9FE); }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1B3A6B;
+      margin-bottom: 10px;
+      letter-spacing: -.3px;
+    }
+
+    .service-card p {
+      font-size: .87rem;
+      color: #64748B;
+      line-height: 1.65;
+    }
+
+    /* SECTION DARK: LEGAL / COMPLIANCE */
+    .section-dark {
+      background: linear-gradient(150deg, #0D2244 0%, #1B3A6B 100%);
+      padding: 96px 24px;
+    }
+
+    .section-dark .section-eyebrow { color: #C9A84C; }
+
+    .section-dark .section-header h2 { color: #ffffff; }
+
+    .section-dark .section-header p { color: rgba(255,255,255,.55); }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .compliance-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all .25s ease;
+    }
+
+    .compliance-card:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(201,168,76,.3);
+      transform: translateY(-4px);
+    }
+
+    .cc-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .cc-title {
+      font-size: .9rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .cc-desc {
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+      line-height: 1.6;
+    }
+
+    /* IDENTITY STRIP */
+    .identity-strip {
+      background: #F8F9FC;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 32px 24px;
+    }
+
+    .identity-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 32px 48px;
+    }
+
+    .id-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .id-label {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #C9A84C;
+    }
+
+    .id-value {
+      font-size: .92rem;
+      font-weight: 700;
+      color: #1B3A6B;
+    }
+
+    .id-value a { color: #1B3A6B; }
+
+    /* CTA FINAL */
+    .cta-section {
+      padding: 96px 24px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+
+    .cta-section h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900;
+      color: #1B3A6B;
+      letter-spacing: -1px;
       margin-bottom: 16px;
     }
 
-    .hero h1 span { color: #c8a84b; }
-
-    .hero p {
-      color: #b8c8df;
-      font-size: 1.05rem;
+    .cta-section p {
+      color: #64748B;
+      font-size: 1rem;
       margin-bottom: 36px;
       line-height: 1.7;
     }
 
-    .hero-cta {
+    .cta-btn {
       display: inline-flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: #c8a84b;
-      color: #0f2340;
-      font-weight: 700;
-      font-size: .95rem;
-      padding: 13px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity .2s, transform .1s;
-    }
-
-    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
-
-    .btn-outline {
-      border: 1.5px solid rgba(255,255,255,.3);
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #1B3A6B 0%, #254a87 100%);
       color: #ffffff;
-      font-weight: 600;
-      font-size: .95rem;
-      padding: 13px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background .2s;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 12px;
+      letter-spacing: .2px;
+      box-shadow: 0 8px 24px rgba(27,58,107,.3);
+      transition: all .25s ease;
     }
 
-    .btn-outline:hover { background: rgba(255,255,255,.08); }
-
-    .hero-info {
-      margin-top: 48px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 28px;
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(27,58,107,.4);
     }
 
-    .hero-info-item {
-      text-align: center;
+    .cta-note {
+      margin-top: 16px;
+      font-size: .78rem;
+      color: #94A3B8;
     }
-
-    .hero-info-item .hi-label {
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #c8a84b;
-      margin-bottom: 3px;
-    }
-
-    .hero-info-item .hi-value {
-      font-size: .9rem;
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .features {
-      padding: 72px 24px;
-      background: #f5f7fa;
-    }
-
-    .features-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .features h2 {
-      text-align: center;
-      color: #1a3a6b;
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
-    .features-sub {
-      text-align: center;
-      color: #6b6b6b;
-      margin-bottom: 48px;
-      font-size: .95rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 28px 24px;
-      box-shadow: 0 2px 16px rgba(26,58,107,.08);
-      text-align: center;
-      transition: box-shadow .2s;
-    }
-
-    .feature-card:hover { box-shadow: 0 4px 24px rgba(26,58,107,.14); }
-
-    .feature-card .fc-icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .feature-card h3 { color: #1a3a6b; font-size: 1rem; margin-bottom: 8px; }
-    .feature-card p { color: #6b6b6b; font-size: .88rem; line-height: 1.6; }
-
-    .cta-strip {
-      background: #1a3a6b;
-      padding: 48px 24px;
-      text-align: center;
-    }
-
-    .cta-strip h2 { color: #ffffff; font-size: 1.5rem; margin-bottom: 8px; }
-    .cta-strip p  { color: #b8c8df; margin-bottom: 24px; }
 
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.7rem; }
-      .hero-info { gap: 20px; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .stat-item:last-child { border-bottom: none; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .identity-inner { gap: 20px 32px; }
     }
   </style>
 </head>
 <body data-page="Início">
 
-  <!-- Header e Footer injetados por components.js -->
+  <!-- Header injetado por components.js -->
 
-  <!-- HERO -->
+  <!-- ── HERO ──────────────────────────────────────────── -->
   <section class="hero" aria-label="Apresentação">
+    <div class="hero-orb"></div>
     <div class="hero-content">
-      <span class="hero-badge">Crédito Consignado</span>
-      <h1>Soluções financeiras com <span>transparência</span> e confiança</h1>
-      <p>
-        O GRUPO ALIANÇA CONSIG conecta servidores públicos, aposentados e pensionistas
-        às melhores condições de crédito consignado do mercado, com segurança e agilidade.
+
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Correspondente Bancário Autorizado
+      </div>
+
+      <h1>
+        Crédito consignado<br>
+        com <span class="highlight">transparência</span><br>
+        e condições reais
+      </h1>
+
+      <p class="hero-desc">
+        O GRUPO ALIANÇA CONSIG conecta servidores públicos, aposentados
+        e pensionistas às melhores taxas do mercado — com agilidade,
+        segurança e zero burocracia.
       </p>
-      <div class="hero-cta">
-        <a href="contato.html" class="btn-primary">Fale Conosco</a>
-        <a href="politica-de-privacidade.html" class="btn-outline">Política de Privacidade</a>
+
+      <div class="hero-actions">
+        <a href="contato.html" class="btn-hero-primary">
+          Simular agora →
+        </a>
+        <a href="politica-de-privacidade.html" class="btn-hero-secondary">
+          Conheça nossa política
+        </a>
       </div>
 
-      <!-- Dados legais visíveis no hero — requisito Meta -->
-      <div class="hero-info">
-        <div class="hero-info-item">
-          <p class="hi-label">Razão Social</p>
-          <p class="hi-value">GRUPO ALIANÇA CONSIG</p>
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <p class="stat-number">INSS<span>+</span></p>
+          <p class="stat-label">Aposentados e Pensionistas</p>
         </div>
-        <div class="hero-info-item">
-          <p class="hi-label">CNPJ</p>
-          <p class="hi-value">50.090.630/0001-72</p>
+        <div class="stat-item">
+          <p class="stat-number"><span>100%</span></p>
+          <p class="stat-label">Online e sem sair de casa</p>
         </div>
-        <div class="hero-info-item">
-          <p class="hi-label">Telefone</p>
-          <p class="hi-value">
-            <a href="tel:+554892107347" style="color:#fff;text-decoration:none;">(48) 9210-7347</a>
-          </p>
+        <div class="stat-item">
+          <p class="stat-number">LGPD<span>✓</span></p>
+          <p class="stat-label">Dados protegidos por lei</p>
         </div>
-        <div class="hero-info-item">
-          <p class="hi-label">Localização</p>
-          <p class="hi-value">Palhoça / SC</p>
+        <div class="stat-item">
+          <p class="stat-number">SC<span></span></p>
+          <p class="stat-label">Palhoça / Santa Catarina</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── IDENTITY STRIP (dados legais visíveis — Meta) ── -->
+  <div class="identity-strip" aria-label="Identificação da empresa">
+    <div class="identity-inner">
+      <div class="id-item">
+        <span class="id-label">Razão Social</span>
+        <span class="id-value">GRUPO ALIANÇA CONSIG</span>
+      </div>
+      <div class="id-item">
+        <span class="id-label">CNPJ</span>
+        <span class="id-value">50.090.630/0001-72</span>
+      </div>
+      <div class="id-item">
+        <span class="id-label">Telefone</span>
+        <span class="id-value"><a href="tel:+554892107347">(48) 9210-7347</a></span>
+      </div>
+      <div class="id-item">
+        <span class="id-label">E-mail</span>
+        <span class="id-value"><a href="mailto:contato@grupoaliancaconsig.shop">contato@grupoaliancaconsig.shop</a></span>
+      </div>
+      <div class="id-item">
+        <span class="id-label">Endereço</span>
+        <span class="id-value">Rua Gênova, 12, Sala 4 — Palhoça/SC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVIÇOS ────────────────────────────────────────── -->
+  <section class="section" style="background:#F8F9FC;" aria-label="Serviços">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">O que fazemos</span>
+        <h2>Soluções pensadas<br>para cada perfil</h2>
+        <p>Trabalhamos com as melhores instituições financeiras reguladas pelo Banco Central para oferecer as melhores condições.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon si-blue">🏛️</div>
+          <h3>Servidores Públicos</h3>
+          <p>Crédito consignado com desconto direto em folha para servidores municipais, estaduais e federais. Taxas reduzidas e prazos flexíveis.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon si-gold">👴</div>
+          <h3>Aposentados e Pensionistas</h3>
+          <p>Crédito via benefício INSS com as menores taxas do mercado. Processo 100% digital, sem sair de casa.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon si-green">♻️</div>
+          <h3>Refinanciamento</h3>
+          <p>Refinancie seu contrato atual e obtenha troco, melhores condições ou prazo estendido. Simulação sem compromisso.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon si-purple">💳</div>
+          <h3>Cartão Consignado</h3>
+          <p>Cartão com limite garantido e fatura debitada automaticamente do benefício. Conveniência e controle total.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="features" aria-label="Diferenciais">
-    <div class="features-inner">
-      <h2>Por que escolher o Grupo Aliança?</h2>
-      <p class="features-sub">Atuamos com ética, responsabilidade e total conformidade regulatória.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="fc-icon">🏦</div>
-          <h3>Parceiros Regulados</h3>
-          <p>Trabalhamos apenas com instituições financeiras autorizadas pelo Banco Central do Brasil.</p>
+  <!-- ── COMPLIANCE / CONFORMIDADE ─────────────────────── -->
+  <section class="section-dark" aria-label="Conformidade e segurança">
+    <div style="max-width:1120px;margin:0 auto;">
+      <div class="section-header">
+        <span class="section-eyebrow">Segurança e conformidade</span>
+        <h2>Você está em<br>boas mãos</h2>
+        <p>Operamos com total conformidade às normas regulatórias vigentes, garantindo segurança em cada etapa.</p>
+      </div>
+
+      <div class="compliance-grid">
+        <div class="compliance-card">
+          <span class="cc-icon">🏦</span>
+          <p class="cc-title">Banco Central</p>
+          <p class="cc-desc">Atuamos como correspondente bancário conforme regulamentação do BCB.</p>
         </div>
-        <div class="feature-card">
-          <div class="fc-icon">🔒</div>
-          <h3>Dados Protegidos</h3>
-          <p>Tratamento de dados pessoais em conformidade com a LGPD (Lei n.º 13.709/2018).</p>
+        <div class="compliance-card">
+          <span class="cc-icon">🔒</span>
+          <p class="cc-title">LGPD</p>
+          <p class="cc-desc">Seus dados pessoais são tratados em total conformidade com a Lei 13.709/2018.</p>
         </div>
-        <div class="feature-card">
-          <div class="fc-icon">⚡</div>
-          <h3>Atendimento Ágil</h3>
-          <p>Resposta rápida e análise eficiente para que você tenha acesso ao crédito no menor prazo possível.</p>
+        <div class="compliance-card">
+          <span class="cc-icon">📋</span>
+          <p class="cc-title">Transparência</p>
+          <p class="cc-desc">Todas as condições são apresentadas antes de qualquer contratação.</p>
         </div>
-        <div class="feature-card">
-          <div class="fc-icon">📋</div>
-          <h3>Transparência Total</h3>
-          <p>Todas as condições do crédito são apresentadas de forma clara antes de qualquer contratação.</p>
+        <div class="compliance-card">
+          <span class="cc-icon">🛡️</span>
+          <p class="cc-title">Dados Protegidos</p>
+          <p class="cc-desc">Criptografia e controle de acesso em todos os sistemas que operamos.</p>
+        </div>
+        <div class="compliance-card">
+          <span class="cc-icon">⚡</span>
+          <p class="cc-title">Agilidade</p>
+          <p class="cc-desc">Análise rápida para que você receba o crédito no menor prazo possível.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA STRIP -->
-  <section class="cta-strip" aria-label="Contato">
-    <h2>Pronto para simular seu crédito?</h2>
-    <p>Nossa equipe atende de segunda a sexta, das 08h às 18h.</p>
-    <a href="contato.html" class="btn-primary">Entrar em Contato</a>
+  <!-- ── CTA FINAL ──────────────────────────────────────── -->
+  <section class="cta-section" aria-label="Entre em contato">
+    <div class="cta-inner">
+      <h2>Pronto para simular<br>seu crédito?</h2>
+      <p>Nossa equipe está disponível de segunda a sexta, das 08h às 18h, para te atender com toda atenção que você merece.</p>
+      <a href="contato.html" class="cta-btn">
+        Falar com um especialista →
+      </a>
+      <p class="cta-note">Sem compromisso. Simulação 100% gratuita.</p>
+    </div>
   </section>
 
   <script src="js/components.js"></script>
